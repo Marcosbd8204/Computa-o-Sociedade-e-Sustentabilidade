@@ -1,2 +1,2 @@
-# Projeto para o Larbem
-Repositorio voltado para todo material usado para a instituição Larbem
+# Projeto para o Grupo_Partilhar
+## Pasta reservada a todo o material usado para a criação e execução doo projeto em beneficio da instituição Larbem
