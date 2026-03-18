@@ -1,2 +1,2 @@
-# Projeto para o Larbem
-## Pasta reservada a todo o projeto em beneficio da instituição partilhar 
+# Projeto para o Grupo_Partilhar
+## Pasta reservada a todo o material usado para a criação e execução doo projeto em beneficio da instituição Gurpo_Partilhar 
