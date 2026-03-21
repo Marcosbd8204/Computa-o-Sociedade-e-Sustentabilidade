@@ -122,7 +122,7 @@ body {
   width: 100%;
   height: 100%;
   background: #fff;
-  border: 0.5px solid #111; /* Borda um pouco mais grossa */
+  border: 3px solid #111; /* Borda um pouco mais grossa */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -150,9 +150,8 @@ body {
   }
 }
 
-/* ======================================================================================================= */
+/* -------------------------------------------------------------------- SEÇÃO VALORES (SEGUNDA SEÇÃO) ---------------------------------- */
 
-/* ------------ SEÇÃO VALORES ---------------- */
 .valores-titulo span {
   color: #af40ff;
 }
@@ -161,7 +160,7 @@ body {
   width: 100%;
   padding: 100px 60px;
   /* Degradê suave de fundo igual à imagem */
-  background: linear-gradient(to bottom, transparent, #f3a6eb, #e5bdff);
+  background: linear-gradient(to bottom, transparent, #ff98ec, #e5bdff);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -220,10 +219,7 @@ body {
   width: 100%;
   height: 100%;
   background: #fdf5e6; /* Cor bege clarinha do card */
-  border: 2px solid #111;
-  
-
-
+  border: 3px solid #111;
   padding: 30px;
   z-index: 2;
   display: flex;
@@ -244,20 +240,117 @@ body {
 }
 
 
-/* ======================================================================================================= */
 
-/* ------------ TERCEIRA SEÇÃO VALORES ---------------- */
+/* -------------------------------------------------------------------- SEÇÃO SERVIÇOS (TERCEIRA SEÇÃO) ------------------------------- */
 
-
-
-.TITULO-terceira-sec span {
-  color: #d700fd;
+/* Container Principal da Seção */
+.servicos-section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #e5bdff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 10%;
 }
 
-.TITULO-terceira-sec {
-  font-size: 130px; /* Bem grande kjasjksjksjak */
+/* Divisor interno para alinhar esquerda e direita */
+.servicos-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  gap: 80px;
+  align-items: center;
+}
+
+/* --- ESTILO DOS TEXTOS (ESQUERDA) --- */
+
+.servicos-textos {
+  flex: 1;
+}
+
+.servicos-titulo {
+  font-size: 110px; /* Tamanho grande*/
+  font-weight: 700;
   line-height: 0.9;
-  letter-spacing: -5px;
+  letter-spacing: -3px;
+  margin-bottom: 40px;
 }
 
-/* EDIÇÃO DOS CARDS */
+.servicos-titulo span {
+  color: #AF40FF;
+}
+
+.servicos-descricao {
+  font-size: 24px;
+  line-height: 1.4;
+  max-width: 500px;
+  font-weight: 400;
+}
+
+/* --- ESTILO DOS CARDS (DIREITA) --- */
+
+.servicos-lista {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaçamento entre os cards bege */
+}
+
+.servico-item{
+  background-color: #FDF5E6;
+  height: 90px;
+  width: 100%;
+  border-radius: 25px;
+  border: 3px solid #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  transition: transform 0.2s ease;
+
+  /*sombra leve*/
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+
+
+}
+
+/* Efeito de interação simples */
+.servico-item:hover {
+  transform: translate(-8px) scale(1.02); /*"pulo"maior */
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+   background-color: #AF40FF;
+
+}
+
+.servico-item p{
+  font-size: 15px; /*tamanjo dos textos dos cards aqui*/
+  font-weight: 500;
+  color: #111;
+  text-align: center;
+}
+
+/* --- RESPONSIVIDADE (Ajuste para celular) --- */
+@media (max-width: 900px) {
+  .servicos-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+  
+  .servicos-titulo {
+    font-size: 70px;
+  }
+  
+  .servicos-descricao {
+    margin: 0 auto;
+  }
+}
+
+/*----------------------------------------------------------------------- QUARTA SEÇÃO EM BREVE AQUI.... ---------------------------------------*/
+
+
+
+/*continua...*/
