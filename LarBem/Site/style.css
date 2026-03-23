@@ -351,6 +351,24 @@ body {
 
 /*----------------------------------------------------------------------- QUARTA SEÇÃO EM BREVE AQUI.... ---------------------------------------*/
 
+.banner{
+  width: 100%;
+  height: 300px; /*altura do cabeçalho*/
+  background-image: url(imagens/Team\ spirit-bro.png);
+  background-size: cover; /*serve para cobrir toda a área*/
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
 
 
-/*continua...*/
+
+.loja-text span {
+  color: #f30574;
+}
+
+.loja-content {
+  font-size: 80px; /* Bem grande kjasjksjksjak */
+  line-height: 1;
+  letter-spacing: -5px;
+}
