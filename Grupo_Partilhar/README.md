@@ -1,18 +1,5 @@
 # 📒 Relatório de Projeto de Extensão: INSTITUIÇÃO PARTILHAR
 
-- **INSTITUIÇÃO:** UNIVERSIDADE CATÓLICA DE PERNAMBUCO
-- **CURSO:** CIÊNCIAS DA COMPUTAÇÃO (2º Período)
-
-## 🏷️ DADOS DOS DISCENTES
-| MATRÍCULA | NOME E SOBRENOME |
-| :--- | :--- |
-| **00000859509** | Amanda Aziz Ibarra  |
-| **Sua Matrícula** | Seu Nome  |
-| **Sua Matrícula** | Seu Nome  |
-| **Sua Matrícula** | Seu Nome  |
-
----
-
 ## 🎯 Objetivo do Projeto
 Descrever brevemente qual problema que resolvemos e quem foi o 'público-alvo'.
 
