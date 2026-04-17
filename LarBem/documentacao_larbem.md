@@ -18,20 +18,6 @@ A interface foi projetada com foco em acessibilidade e modernidade, utilizando o
 | **Rosa** | `#ff6eaf` |
 | **Laranja** | `#ff9800` |
 
-## 🖼️ Demonstração Visual (Prints do Sistema)
-
-### 1. Navegação Estruturada
-O menu superior permite acesso rápido às áreas de doação e serviços, utilizando botões com alto contraste.
-![Menu de Navegação](sua_imagem_do_menu.png)
-
-### 2. Captação de Doações (Call to Action)
-Seção dedicada ao incentivo de doações para o bazar, com linguagem clara e botão de ação direto.
-![Seção de Doação](sua_imagem_do_bazar.png)
-
-### 3. Central de Contatos e Localização
-Formulário de contato validado e integração com informações de endereço e redes sociais da instituição.
-![Página de Contatos](sua_imagem_dos_contatos.png)
-
 ## 🛠️ Tecnologias Utilizadas
 
 
