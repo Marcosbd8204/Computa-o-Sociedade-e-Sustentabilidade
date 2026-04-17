@@ -1,8 +1,10 @@
-## INSTITUIÇÃO
-UNIVERSIDADE CATÓLICA DE PERNAMBUCO
+## UNIVERSIDADE CATÓLICA DE PERNAMBUCO
+> Curso - Ciências da Computação
 
-## CURSO
-CIÊNCIAS DA COMPUTAÇÃO (2º Período)
+# 🌍 Computação, Sociedade e Sustentabilidade
+
+> **Projeto de Extensão Universitária**  
+> Unindo tecnologia e impacto social para fortalecer instituições locais através de soluções digitais e estratégias de captação.
 
 ## 🏷️ DADOS DOS DISCENTES
 | MATRÍCULA | NOME E SOBRENOME | PERFIS |
@@ -11,14 +13,6 @@ CIÊNCIAS DA COMPUTAÇÃO (2º Período)
 | **Sua Matrícula** | Seu Nome  | [nome-perfil](link) |
 | **Sua Matrícula** | Seu Nome  | [nome-perfil](link) |
 | **Sua Matrícula** | Seu Nome  | [nome-perfil](link) |
-
----
-
-
-# 🌍 Computação, Sociedade e Sustentabilidade
-
-> **Projeto de Extensão Universitária**  
-> Unindo tecnologia e impacto social para fortalecer instituições locais através de soluções digitais e estratégias de captação.
 
 ---
 
