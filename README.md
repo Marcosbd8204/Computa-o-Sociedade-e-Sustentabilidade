@@ -11,7 +11,7 @@
 | :--- | :--- | :--- |
 | **00000859509** | Amanda Aziz  | [Amanda-Aziz](https://github.com/Amanda-Aziz) |
 | **00000861020** | Mozart Moura | [MozartDemarias](https://github.com/mozartDemarias) |
-| **00000851337** | Marcos Vinicius  | .[Marcos-Vinicius]([link](https://github.com/Marcosbd8204)) |
+| **00000851337** | Marcos Vinicius  | [Marcos-Vinicius]([link](https://github.com/Marcosbd8204)) |
 | **Sua Matrícula** | Seu Nome  | [nome-perfil](link) |
 
 ---
