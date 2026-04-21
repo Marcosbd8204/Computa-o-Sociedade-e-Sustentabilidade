@@ -1,13 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var doacaoInfo = document.querySelector(".doacao-info");
-  var lojaSection = document.querySelector(".secao-nossa-loja");
-  var lojaTexto = lojaSection ? lojaSection.querySelector(".bloco-texto") : null;
 
-  if (doacaoInfo && lojaTexto && !doacaoInfo.querySelector(".bloco-texto-loja-inline")) {
-    var lojaClone = lojaTexto.cloneNode(true);
-    lojaClone.classList.add("bloco-texto-loja-inline");
-    doacaoInfo.appendChild(lojaClone);
-  }
+  
 
  var data = [
     { src: "imagens/roupa.jpg", alt: "Roupas", label: "roupas" },

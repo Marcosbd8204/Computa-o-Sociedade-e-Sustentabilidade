@@ -17,7 +17,7 @@ body {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
-  background-image: url("imagens/FUNDOS/fundo7.png"); /* Alterado para fundo6 */
+  background-image: url("imagens/FUNDOS/fundo6.png"); /* Alterado para fundo6 */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -373,116 +373,111 @@ header {
 /*----------------------------------------------------------------------- QUARTA SEÇÃO ----------------------------------------------------------*/
 
 /* FAIXA ANIMADA */
-.marquee-banner {
+.marquee {
   width: 100%;
-  background-color: #fff; 
+  background-color: #fff;
   border-top: 1px solid #111;
   border-bottom: 1px solid #111;
-  overflow: hidden; /* Esconde o que sai da tela */
+  overflow: hidden;
   padding: 10px 0;
   display: flex;
 }
 .marquee-content {
   display: flex;
   white-space: nowrap;
-  animation: girar-faixa 35s linear infinite; /* Velocidade da animação */
+  animation: girar-faixa 35s linear infinite;
 }
 .marquee-content span {
   font-size: 20px;
   font-weight: 600;
-  color: #ff00bf; 
+  color: #ff00bf;
   padding: 0 10px;
 }
 @keyframes girar-faixa {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); } /* Move metade, faz parecr infinito */
+  to   { transform: translateX(-50%); }
 }
 
+/* SEÇÃO PRINCIPAL */
 
-.secao-nossa-loja {
-  background-color: #9055c8;
+.quarta-secao {
   padding: 80px 10%;
-  min-height: 450px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  color: #fff;
+
+  background: url(imagens/FUNDOS/fundo4.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; 
+  
 }
 
-/* container interno igual ao .doacao-container */
-.secao-nossa-loja-inner {
+.quarta-secao-inner {
   max-width: 1300px;
-  width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  gap: 230px;                  /* MUDAR AQUI SE QUISER AUMENTAR A DISTANCIA ENTRE AS SEÇÕES DA LOJA E DO BAZAR... */
 }
 
-.bloco-texto {
-  max-width: 450px;
+/* === LINHA 1: CARROSSEL + NOSSA LOJA === */
+
+.linha-loja {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+.loja-carrossel-col {
+  flex: 1;
+}
+.loja-texto-col {
+  flex: 1;
   text-align: right;
-  color: white;
 }
-
-.bloco-texto h1 {
-  font-size: clamp(52px, 8vw, 110px); /* se adapta igual ao resto */
+.loja-titulo {
+  font-size: clamp(52px, 8vw, 110px);
   font-weight: 800;
   line-height: 0.85;
   letter-spacing: -5px;
   margin-bottom: 30px;
+  color: #fff;
 }
-
-.bloco-texto p {
-  font-size: clamp(16px, 1.5vw, 22px); /* idem */
+.loja-titulo span {
+  color: #ff5757;
+}
+.loja-descricao {
+  font-size: clamp(16px, 1.5vw, 22px);
   line-height: 1.4;
   font-weight: 500;
 }
 
-.bloco-texto span {
-  color: #ff5757;
-}
-
-
-/* ------------------------------------------------------------------- 'QUINTA SEÇÃO' SEÇÃO DOAÇÃO -------------------------------------------- */
-
-.doacao-section {
-  background-color: #9055C8; 
-  padding: 120px 10%; 
-  color: #fff;
-}
-
-.doacao-container {
+/* === LINHA 2: CATEGORIAS + DOE PARA O BAZAR === */
+.linha-bazar {
   display: flex;
-  max-width: 1300px; /*+ largo para alinhar com o topo */
-  margin: 0 auto;
-  gap: 100px; /* espaço entre as imagens e o texto */
   align-items: center;
+  gap: 80px;
 }
-
-/*    L A D O               E S Q U E R D O */
-.categorias-grid {
+.categorias-lista-col {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 25px; /* espaço entre cada card de imagem */
+  gap: 20px;
 }
-
 .categoria-item {
   position: relative;
   width: 100%;
-  height: 120px; 
+  height: 120px;
   border-radius: 10px;
   overflow: hidden;
   border: 3px solid #111;
-  box-shadow: 6px 6px 0px #111; /* aombra sólida */
+  box-shadow: 6px 6px 0px #111;
 }
-
 .categoria-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: brightness(0.6);
 }
-
 .categoria-item span {
   position: absolute;
   top: 50%;
@@ -492,34 +487,29 @@ header {
   font-weight: 800;
   text-transform: lowercase;
   letter-spacing: -2px;
+  color: #fff;
 }
-
-/* LADO DIREITO */
-.doacao-info {
+.doacao-info-col {
   flex: 1;
-  text-align: right; 
+  text-align: right;
 }
-
 .doacao-titulo {
-  font-size: 100px; /* Tamanho impacto */
+  font-size: clamp(60px, 7vw, 100px);
   line-height: 0.85;
   font-weight: 800;
   margin-bottom: 40px;
   letter-spacing: -4px;
 }
-
 .doacao-titulo span {
-  color: #ff5757; 
+  color: #ff5757;
 }
-
 .doacao-subtitulo {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 25px;
   max-width: 500px;
-  margin-left: auto; /* Mantém alinhado à direita */
+  margin-left: auto;
 }
-
 .doacao-texto {
   font-size: 18px;
   line-height: 1.5;
@@ -528,10 +518,9 @@ header {
   margin-left: auto;
   opacity: 0.9;
 }
-
 .btn-doacao {
   display: inline-block;
-  background-color: #fdf5e6; /* Bege para destacar do roxo */
+  background-color: #fdf5e6;
   color: #111;
   text-decoration: none;
   padding: 18px 45px;
@@ -542,22 +531,126 @@ header {
   box-shadow: 5px 5px 0px #111;
   transition: all 0.2s ease;
 }
-
 .btn-doacao:hover {
   transform: scale(1.05);
   background-color: #ff5757;
   color: #fff;
 }
-
-/* Efeito de clique (o botão "afunda") */
 .btn-doacao:active {
-  transform: translate(3px, 3px) scale(1.02); /* Desce em direção à sombra */
-  box-shadow: 2px 2px 0px #111;              /* A sombra diminui */
-  transition: all 0.1s;                      
+  transform: translate(3px, 3px) scale(1.02);
+  box-shadow: 2px 2px 0px #111;
+  transition: all 0.1s;
+}
+
+/* ============================================= CARROSSEL === */
+.bazar-carousel {
+  position: relative;
+  width: 100%;
+  height: 380px;
+}
+.bazar-carousel-viewport {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 3px solid #111;
+  box-shadow: 6px 6px 0 #111;
+}
+.bazar-carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.45s ease;
+}
+.bazar-slide {
+  position: relative;
+  min-width: 100%;
+  height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.bazar-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.28);
+}
+.bazar-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.bazar-slide span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 40px);
+  color: #fff;
+  text-align: center;
+  text-transform: lowercase;
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  z-index: 1;
+}
+.bazar-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border: 3px solid #111;
+  border-radius: 50%;
+  background: #fdf5e6;
+  color: #111;
+  font-size: 28px;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 4px 4px 0 #111;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.bazar-carousel-btn:hover {
+  background-color: #ff5757;
+  color: #fff;
+}
+.bazar-carousel-btn:active {
+  transform: translateY(calc(-50% + 3px));
+  box-shadow: 2px 2px 0 #111;
+}
+.bazar-carousel-btn-prev { left: 14px; }
+.bazar-carousel-btn-next { right: 14px; }
+
+/* === RESPONSIVO === */
+@media (max-width: 900px) {
+  .linha-loja,
+  .linha-bazar {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .loja-texto-col,
+  .doacao-info-col {
+    text-align: center;
+  }
+  .doacao-subtitulo,
+  .doacao-texto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .bazar-carousel {
+    height: 260px;
+  }
+}
+@media (max-width: 600px) {
+  .bazar-carousel { height: 200px; }
+  .bazar-slide span { font-size: 36px; }
+  .categoria-item span { font-size: 32px; }
+  .doacao-titulo { font-size: 52px; }
 }
 
 
-/*----------------------------------------------------------------------- SEXTA SEÇÃO ---------------------------------------------------------*/
+/*----------------------------------------------------------------------- QUINTA SEÇÃO ---------------------------------------------------------*/
 
 
 /* FAIXA ANIMADA */
@@ -670,11 +763,7 @@ header {
 }
 
 
-/*----------------------------------------------------------------------- SÉTIMA SEÇÃO ---------------------------------------------------------*/
-
-
-
-
+/*----------------------------------------------------------------------- SEXTA SEÇÃO ---------------------------------------------------------*/
 
 /* FOOTER  */
 footer {
@@ -682,10 +771,14 @@ footer {
   padding: 22px 40px;
   text-align: center;
   font-size: 0.82rem;
-  color: #555;
+  color: #2c2b2b;         /*original é #555*/
   line-height: 1.7;
-  
-  background: #fff;
-  background-size: auto;
-  background-repeat: repeat;
+
+  background-image: url("imagens/FUNDOS/fundo5.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; 
 }
+
+

@@ -171,99 +171,87 @@
   </div>
 </div>
 
-  <!-- LADO do TEXTO FIXO // essa parte deixa fixo -->
-  <section class="secao-nossa-loja">
-  <div class="secao-nossa-loja-inner">
-    <div class="bloco-texto">
-      <h1>Nossa Loja<span>.</span></h1>
-      <p>
-        Também contamos com um brechó solidário, onde itens doados são vendidos
-        para apoiar e fortalecer nossos projetos sociais.
-      </p>
-    </div>
-  </div>
-</section>
+<div id="QUARTA-SECAO">
 
+<section class="quarta-secao">
+  <div class="quarta-secao-inner">
 
-<section class="doacao-section">
-  <div class="doacao-container">
-    
-    <!-- LADO ESQUERDO: GRADE DE CATEGORIAS -->
-    <div class="categorias-grid">
-
-<!-- CARROSSEL -->
-
-  <div class="bazar-carousel" data-bazar-carousel>
-    <div class="bazar-carousel-viewport">
-      <div class="bazar-carousel-track" data-bazar-track>
-
-        <div class="bazar-slide">
-          <img src="imagens/roupa.jpg" alt="Roupas">
-          <span>roupas</span>
+    <!-- LINHA 1: Carrossel (esq) + Nossa Loja (dir) -->
+    <div class="linha-loja">
+      <div class="loja-carrossel-col">
+        <div class="bazar-carousel" data-bazar-carousel>
+          <div class="bazar-carousel-viewport">
+            <div class="bazar-carousel-track" data-bazar-track>
+              <div class="bazar-slide">
+                <img src="imagens/roupa.jpg" alt="Roupas">
+                <span>roupas</span>
+              </div>
+              <div class="bazar-slide">
+                <img src="imagens/tenis.jpg" alt="Sapatos">
+                <span>sapatos</span>
+              </div>
+              <div class="bazar-slide">
+                <img src="imagens/acessorio.jpg" alt="Acessórios">
+                <span>acessorios</span>
+              </div>
+              <div class="bazar-slide">
+                <img src="imagens/brinquedo.jpg" alt="Brinquedos">
+                <span>brinquedos</span>
+              </div>
+            </div>
+          </div>
+          <button class="bazar-carousel-btn bazar-carousel-btn-prev" data-bazar-prev>&#8249;</button>
+          <button class="bazar-carousel-btn bazar-carousel-btn-next" data-bazar-next>&#8250;</button>
         </div>
+      </div>
 
-        <div class="bazar-slide">
-          <img src="imagens/tenis.jpg" alt="Sapatos">
-          <span>sapatos</span>
-        </div>
-
-        <div class="bazar-slide">
-          <img src="imagens/acessorio.jpg" alt="Acessórios">
-          <span>acessorios</span>
-        </div>
-
-        <div class="bazar-slide">
-          <img src="imagens/brinquedo.jpg" alt="Brinquedos">
-          <span>brinquedos</span>
-        </div>
-
+      <div class="loja-texto-col">
+        <h1 class="loja-titulo">Nossa Loja<span>.</span></h1>
+        <p class="loja-descricao">
+          Também contamos com um brechó solidário, onde itens doados são vendidos
+          para apoiar e fortalecer nossos projetos sociais.
+        </p>
       </div>
     </div>
 
-    <button class="bazar-carousel-btn bazar-carousel-btn-prev" data-bazar-prev>&#8249;</button>
-    <button class="bazar-carousel-btn bazar-carousel-btn-next" data-bazar-next>&#8250;</button>
-  </div>
+    <!-- LINHA 2: Lista categorias (esq) + Doe para o Bazar (dir) -->
+    <div class="linha-bazar">
+      <div class="categorias-lista-col">
+        <div class="categoria-item">
+          <img src="imagens/roupa.jpg" alt="Roupas">
+          <span>roupas</span>
+        </div>
+        <div class="categoria-item">
+          <img src="imagens/tenis.jpg" alt="Calçados">
+          <span>calçados</span>
+        </div>
+        <div class="categoria-item">
+          <img src="imagens/acessorio.jpg" alt="Acessórios">
+          <span>acessórios</span>
+        </div>
+        <div class="categoria-item">
+          <img src="imagens/brinquedo.jpg" alt="Brinquedos">
+          <span>brinquedos</span>
+        </div>
+      </div>
 
-  <!-- LISTA DE CATEGORIAS -->
-  <div class="categorias-lista">
-    <div class="categoria-item">
-      <img src="imagens/roupa.jpg" alt="Roupas">
-      <span>roupas</span>
-    </div>
-    <div class="categoria-item">
-      <img src="imagens/tenis.jpg" alt="Calçados">
-      <span>calçados</span>
-    </div>
-    <div class="categoria-item">
-      <img src="imagens/acessorio.jpg" alt="Acessórios">
-      <span>acessórios</span>
-    </div>
-    <div class="categoria-item">
-      <img src="imagens/brinquedo.jpg" alt="Brinquedos">
-      <span>brinquedos</span>
-    </div>
-  </div>
-
-</div>
-
-
-    <!-- LADO DIREITO: TEXTOS E BOTÃO -->
-    <div class="doacao-info">
-      <h2 class="doacao-titulo"><span>Doe</span> para<br>o Bazar!</h2>
-      
-      <p class="doacao-subtitulo">
-        Contribua com roupas em bom estado para o nosso bazar solidário.
-      </p>
-      
-      <p class="doacao-texto">
-        Escolha os itens que não utiliza mais, garantindo que estejam limpos, conservados e em condições de uso, e entre em contato conosco para realizar a doação.
-      </p>
-
-      <a href="javascript:void(0)" class="btn-doacao">Faça sua Doação</a>
+      <div class="doacao-info-col">
+        <h2 class="doacao-titulo"><span>Doe</span> para<br>o Bazar!</h2>
+        <p class="doacao-subtitulo">
+          Contribua com roupas em bom estado para o nosso bazar solidário.
+        </p>
+        <p class="doacao-texto">
+          Escolha os itens que não utiliza mais, garantindo que estejam limpos,
+          conservados e em condições de uso, e entre em contato conosco para realizar a doação.
+        </p>
+        <a href="javascript:void(0)" class="btn-doacao">Faça sua Doação</a>
+      </div>
     </div>
 
   </div>
 </section>
+
+</div>
 
 <!-- FAIXA ANIMADA (MARQUEE) -->
 <div class="marquee">
