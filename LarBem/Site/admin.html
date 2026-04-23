@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin – Bazar Lar Bem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --roxo: #8b5cf6;
+      --rosa: #f9c8ce;
+      --escuro: #1a1a1a;
+      --fundo: #f5f0e8;
+      --branco: #fff;
+      --cinza: #666;
+      --verde: #22c55e;
+      --vermelho: #e53e3e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--fundo);
+      color: var(--escuro);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--escuro);
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--branco);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--roxo); }
+
+    .header-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .header-links a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color .2s;
+    }
+
+    .header-links a:hover { color: var(--branco); }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ── FORMULÁRIO ── */
+    .form-card {
+      background: var(--branco);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.06);
+      position: sticky;
+      top: 20px;
+    }
+
+    .form-card h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-grupo {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--cinza);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 2px solid #e5e5e5;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      color: var(--escuro);
+      outline: none;
+      transition: border-color .2s;
+      background: var(--fundo);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--roxo);
+    }
+
+    textarea { resize: vertical; min-height: 80px; }
+
+    .btn-salvar {
+      width: 100%;
+      background: var(--escuro);
+      color: var(--branco);
+      border: none;
+      border-radius: 12px;
+      padding: 14px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+      margin-top: 8px;
+    }
+
+    .btn-salvar:hover { background: var(--roxo); }
+
+    .btn-limpar {
+      width: 100%;
+      background: none;
+      color: var(--cinza);
+      border: 2px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+      margin-top: 8px;
+    }
+
+    .btn-limpar:hover { border-color: var(--escuro); color: var(--escuro); }
+
+    /* ── LISTA DE PRODUTOS ── */
+    .lista-card {
+      background: var(--branco);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.06);
+    }
+
+    .lista-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .lista-header h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .contador {
+      background: var(--fundo);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--cinza);
+    }
+
+    /* ── ITEM ADMIN ── */
+    .item-admin {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      border: 2px solid #f0f0f0;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      transition: border-color .2s;
+    }
+
+    .item-admin:hover { border-color: var(--roxo); }
+
+    .item-admin-img {
+      width: 64px;
+      height: 64px;
+      border-radius: 10px;
+      object-fit: cover;
+      background: var(--fundo);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      overflow: hidden;
+    }
+
+    .item-admin-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .item-admin-info { flex: 1; min-width: 0; }
+
+    .item-admin-info strong {
+      display: block;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .item-admin-info span {
+      font-size: 0.78rem;
+      color: var(--cinza);
+    }
+
+    .item-admin-acoes {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-editar, .btn-excluir {
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .btn-editar {
+      background: var(--fundo);
+      color: var(--escuro);
+    }
+
+    .btn-editar:hover { background: var(--roxo); color: var(--branco); }
+
+    .btn-excluir {
+      background: #fde8e8;
+      color: var(--vermelho);
+    }
+
+    .btn-excluir:hover { background: var(--vermelho); color: var(--branco); }
+
+    /* ── TOAST ── */
+    #toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--escuro);
+      color: var(--branco);
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s, transform .3s;
+      z-index: 999;
+    }
+
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    #toast.sucesso { background: var(--verde); }
+    #toast.erro { background: var(--vermelho); }
+
+    .lista-vazia {
+      text-align: center;
+      padding: 40px;
+      color: var(--cinza);
+    }
+
+    @media (max-width: 800px) {
+      .container { grid-template-columns: 1fr; }
+      .form-card { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">Larbem<span>.</span> <span style="font-size:.8rem;color:#aaa;font-weight:400">Admin</span></a>
+    <div class="header-links">
+      <a href="bazar.html">Ver bazar →</a>
+      <a href="index.html">← Site</a>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- FORMULÁRIO -->
+    <div class="form-card">
+      <h2>📦 <span id="form-titulo">Novo Produto</span></h2>
+
+      <input type="hidden" id="produto-id">
+
+      <div class="form-grupo">
+        <label>Nome do produto *</label>
+        <input type="text" id="nome" placeholder="Ex: Vestido floral tamanho M">
+      </div>
+
+      <div class="form-grupo">
+        <label>Categoria *</label>
+        <select id="categoria">
+          <option value="">Selecione...</option>
+          <option value="roupas">Roupas</option>
+          <option value="calçados">Calçados</option>
+          <option value="acessórios">Acessórios</option>
+          <option value="brinquedos">Brinquedos</option>
+        </select>
+      </div>
+
+      <div class="form-grupo">
+        <label>Preço (R$) *</label>
+        <input type="number" id="preco" placeholder="0,00" min="0" step="0.01">
+      </div>
+
+      <div class="form-grupo">
+        <label>Quantidade disponível *</label>
+        <input type="number" id="quantidade" placeholder="1" min="0">
+      </div>
+
+      <div class="form-grupo">
+        <label>URL da imagem</label>
+        <input type="text" id="imagem" placeholder="https://...">
+      </div>
+
+      <div class="form-grupo">
+        <label>Descrição</label>
+        <textarea id="descricao" placeholder="Detalhes do produto..."></textarea>
+      </div>
+
+      <button class="btn-salvar" onclick="salvarProduto()">💾 Salvar produto</button>
+      <button class="btn-limpar" onclick="limparForm()">✕ Limpar formulário</button>
+    </div>
+
+    <!-- LISTA -->
+    <div class="lista-card">
+      <div class="lista-header">
+        <h2>Produtos cadastrados</h2>
+        <span class="contador" id="contador">0 produtos</span>
+      </div>
+      <div id="lista-produtos">
+        <div class="lista-vazia">Carregando...</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="toast"></div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import {
+      getFirestore, collection, getDocs, addDoc,
+      updateDoc, deleteDoc, doc
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // ── Cole aqui seu firebaseConfig ──────────────────
+    const firebaseConfig = {
+      apiKey: "AIzaSyDVyZ5ZkAPyWFBMS-tNQRktwu53yomKoBI",
+      authDomain: "lar-bem.firebaseapp.com",
+      projectId: "lar-bem",
+      storageBucket: "lar-bem.firebasestorage.app",
+      messagingSenderId: "284441631105  ",
+      appId: "1:284441631105:web:ee94fab9a82a832f077080"
+    };
+    // ─────────────────────────────────────────────────
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const col = collection(db, 'produtos');
+
+    // Expõe funções do Firestore globalmente
+    window._db = db;
+    window._col = col;
+    window._addDoc = addDoc;
+    window._updateDoc = updateDoc;
+    window._deleteDoc = deleteDoc;
+    window._doc = doc;
+    window._getDocs = getDocs;
+
+    // Carrega lista ao abrir
+    carregarLista();
+    window.carregarLista = carregarLista;
+
+    async function carregarLista() {
+      const lista = document.getElementById('lista-produtos');
+      lista.innerHTML = '<div class="lista-vazia">Carregando...</div>';
+
+      try {
+        const snap = await getDocs(col);
+        const produtos = [];
+        snap.forEach(d => produtos.push({ id: d.id, ...d.data() }));
+
+        document.getElementById('contador').textContent =
+          `${produtos.length} produto${produtos.length !== 1 ? 's' : ''}`;
+
+        if (produtos.length === 0) {
+          lista.innerHTML = '<div class="lista-vazia">📦 Nenhum produto ainda.<br>Cadastre o primeiro!</div>';
+          return;
+        }
+
+        lista.innerHTML = produtos.map(p => `
+          <div class="item-admin">
+            <div class="item-admin-img">
+              ${p.imagem ? `<img src="${p.imagem}" alt="${p.nome}">` : '📦'}
+            </div>
+            <div class="item-admin-info">
+              <strong>${p.nome}</strong>
+              <span>${p.categoria} · R$ ${Number(p.preco).toFixed(2).replace('.', ',')} · ${p.quantidade} un.</span>
+            </div>
+            <div class="item-admin-acoes">
+              <button class="btn-editar" onclick="editarProduto('${p.id}', \`${p.nome}\`, '${p.categoria}', ${p.preco}, ${p.quantidade}, '${p.imagem || ''}', \`${p.descricao || ''}\`)">
+                ✏️ Editar
+              </button>
+              <button class="btn-excluir" onclick="excluirProduto('${p.id}', '${p.nome}')">
+                🗑️
+              </button>
+            </div>
+          </div>
+        `).join('');
+
+      } catch (err) {
+        console.error(err);
+        lista.innerHTML = '<div class="lista-vazia">⚠️ Erro ao carregar. Verifique o Firebase.</div>';
+      }
+    }
+  </script>
+
+  <script>
+    // ── SALVAR PRODUTO ────────────────────────────────
+    async function salvarProduto() {
+      const id        = document.getElementById('produto-id').value;
+      const nome      = document.getElementById('nome').value.trim();
+      const categoria = document.getElementById('categoria').value;
+      const preco     = parseFloat(document.getElementById('preco').value);
+      const quantidade= parseInt(document.getElementById('quantidade').value);
+      const imagem    = document.getElementById('imagem').value.trim();
+      const descricao = document.getElementById('descricao').value.trim();
+
+      // Validação
+      if (!nome || !categoria || isNaN(preco) || isNaN(quantidade)) {
+        toast('Preencha todos os campos obrigatórios!', 'erro');
+        return;
+      }
+
+      const dados = { nome, categoria, preco, quantidade, imagem, descricao };
+
+      try {
+        if (id) {
+          // Editar existente
+          await window._updateDoc(window._doc(window._db, 'produtos', id), dados);
+          toast('✅ Produto atualizado!', 'sucesso');
+        } else {
+          // Novo produto
+          await window._addDoc(window._col, dados);
+          toast('✅ Produto cadastrado!', 'sucesso');
+        }
+
+        limparForm();
+        window.carregarLista();
+
+      } catch (err) {
+        console.error(err);
+        toast('❌ Erro ao salvar. Tente novamente.', 'erro');
+      }
+    }
+
+    // ── EDITAR ────────────────────────────────────────
+    function editarProduto(id, nome, categoria, preco, quantidade, imagem, descricao) {
+      document.getElementById('produto-id').value  = id;
+      document.getElementById('nome').value        = nome;
+      document.getElementById('categoria').value   = categoria;
+      document.getElementById('preco').value       = preco;
+      document.getElementById('quantidade').value  = quantidade;
+      document.getElementById('imagem').value      = imagem;
+      document.getElementById('descricao').value   = descricao;
+      document.getElementById('form-titulo').textContent = 'Editar Produto';
+
+      // Rola até o formulário
+      document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // ── EXCLUIR ───────────────────────────────────────
+    async function excluirProduto(id, nome) {
+      if (!confirm(`Excluir "${nome}"? Esta ação não pode ser desfeita.`)) return;
+
+      try {
+        await window._deleteDoc(window._doc(window._db, 'produtos', id));
+        toast('🗑️ Produto excluído!', 'sucesso');
+        window.carregarLista();
+      } catch (err) {
+        toast('❌ Erro ao excluir.', 'erro');
+      }
+    }
+
+    // ── LIMPAR FORM ───────────────────────────────────
+    function limparForm() {
+      ['produto-id','nome','preco','quantidade','imagem','descricao'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+      document.getElementById('categoria').value = '';
+      document.getElementById('form-titulo').textContent = 'Novo Produto';
+    }
+
+    // ── TOAST ─────────────────────────────────────────
+    function toast(msg, tipo = '') {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'show ' + tipo;
+      setTimeout(() => t.className = '', 3000);
+    }
+
+    window.salvarProduto  = salvarProduto;
+    window.editarProduto  = editarProduto;
+    window.excluirProduto = excluirProduto;
+    window.limparForm     = limparForm;
+  </script>
+
+</body>
+</html>

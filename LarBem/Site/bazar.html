@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bazar Solidário – Lar Bem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --roxo: #8b5cf6;
+      --rosa: #f9c8ce;
+      --escuro: #1a1a1a;
+      --fundo: #f5f0e8;
+      --branco: #fff;
+      --cinza: #666;
+      --verde: #22c55e;
+      --vermelho: #e53e3e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--fundo);
+      color: var(--escuro);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--escuro);
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--branco);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--roxo); }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .btn-voltar {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color .2s;
+    }
+
+    .btn-voltar:hover { color: var(--branco); }
+
+    /* ── CARRINHO BOTÃO ── */
+    .btn-carrinho {
+      background: var(--roxo);
+      color: var(--branco);
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background .2s, transform .1s;
+    }
+
+    .btn-carrinho:hover { background: #7c3aed; }
+    .btn-carrinho:active { transform: scale(.97); }
+
+    .carrinho-badge {
+      background: var(--rosa);
+      color: var(--escuro);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--escuro) 60%, #2d1b69);
+      padding: 60px 40px;
+      text-align: center;
+      color: var(--branco);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 span { color: var(--roxo); }
+
+    .hero p {
+      font-size: 1rem;
+      color: #aaa;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ── CATEGORIAS ── */
+    .categorias {
+      display: flex;
+      gap: 10px;
+      padding: 30px 40px 0;
+      flex-wrap: wrap;
+    }
+
+    .btn-cat {
+      background: var(--branco);
+      border: 2px solid #ddd;
+      border-radius: 50px;
+      padding: 8px 20px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+      color: var(--escuro);
+    }
+
+    .btn-cat:hover,
+    .btn-cat.ativo {
+      background: var(--escuro);
+      border-color: var(--escuro);
+      color: var(--branco);
+    }
+
+    /* ── GRID PRODUTOS ── */
+    .section-titulo {
+      padding: 30px 40px 0;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .grid-produtos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+      padding: 24px 40px 60px;
+    }
+
+    /* ── CARD PRODUTO ── */
+    .card {
+      background: var(--branco);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,.06);
+      transition: transform .2s, box-shadow .2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,0,0,.12);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #f0ece4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #bbb;
+      font-size: 0.8rem;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .card-categoria {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--roxo);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .card-nome {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .card-preco {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--escuro);
+    }
+
+    .card-preco span {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--cinza);
+    }
+
+    .card-qtd {
+      font-size: 0.78rem;
+      color: var(--cinza);
+    }
+
+    .card-qtd.esgotado { color: var(--vermelho); font-weight: 600; }
+
+    .btn-add {
+      margin-top: auto;
+      background: var(--escuro);
+      color: var(--branco);
+      border: none;
+      border-radius: 10px;
+      padding: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s;
+      width: 100%;
+    }
+
+    .btn-add:hover { background: var(--roxo); }
+    .btn-add:disabled { background: #ccc; cursor: not-allowed; }
+
+    /* ── ESTADO VAZIO ── */
+    .vazio {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--cinza);
+    }
+
+    .vazio p { font-size: 1rem; margin-top: 8px; }
+
+    /* ── LOADING ── */
+    .loading {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px;
+      color: var(--cinza);
+    }
+
+    /* ── SIDEBAR CARRINHO ── */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.5);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s;
+    }
+
+    .overlay.aberto { opacity: 1; pointer-events: all; }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 380px;
+      max-width: 100vw;
+      height: 100vh;
+      background: var(--branco);
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform .3s ease;
+      box-shadow: -8px 0 32px rgba(0,0,0,.15);
+    }
+
+    .sidebar.aberto { transform: translateX(0); }
+
+    .sidebar-header {
+      padding: 24px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sidebar-header h2 { font-size: 1.2rem; font-weight: 700; }
+
+    .btn-fechar {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--cinza);
+      transition: color .2s;
+    }
+
+    .btn-fechar:hover { color: var(--escuro); }
+
+    .sidebar-itens {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .item-carrinho {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      background: var(--fundo);
+      border-radius: 12px;
+    }
+
+    .item-carrinho-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #ddd;
+      flex-shrink: 0;
+    }
+
+    .item-carrinho-info { flex: 1; }
+    .item-carrinho-info strong { font-size: 0.9rem; display: block; }
+    .item-carrinho-info span { font-size: 0.8rem; color: var(--cinza); }
+
+    .item-carrinho-controles {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-qtd {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--escuro);
+      background: none;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s;
+    }
+
+    .btn-qtd:hover { background: var(--escuro); color: var(--branco); }
+
+    .carrinho-vazio {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--cinza);
+    }
+
+    .sidebar-footer {
+      padding: 24px;
+      border-top: 1px solid #eee;
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .btn-finalizar {
+      width: 100%;
+      background: var(--roxo);
+      color: var(--branco);
+      border: none;
+      border-radius: 12px;
+      padding: 16px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .btn-finalizar:hover { background: #7c3aed; }
+
+    /* ── TOAST ── */
+    #toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--escuro);
+      color: var(--branco);
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s, transform .3s;
+      z-index: 999;
+      white-space: nowrap;
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ── RESPONSIVO ── */
+    @media (max-width: 600px) {
+      header { padding: 16px 20px; }
+      .categorias { padding: 20px 20px 0; }
+      .grid-produtos { padding: 20px; }
+      .section-titulo { padding: 20px 20px 0; }
+      .sidebar { width: 100vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo">Larbem<span>.</span></a>
+    <div class="header-right">
+      <a href="index.html" class="btn-voltar">← Voltar ao site</a>
+      <button class="btn-carrinho" onclick="abrirCarrinho()">
+        🛒 Carrinho
+        <span class="carrinho-badge" id="badge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Nosso Bazar<span>.</span></h1>
+    <p>Produtos doados com amor, vendidos para fazer o bem. Cada compra apoia nossas crianças.</p>
+  </div>
+
+  <!-- CATEGORIAS -->
+  <div class="categorias" id="categorias">
+    <button class="btn-cat ativo" onclick="filtrar('todos', this)">Todos</button>
+    <button class="btn-cat" onclick="filtrar('roupas', this)">Roupas</button>
+    <button class="btn-cat" onclick="filtrar('calçados', this)">Calçados</button>
+    <button class="btn-cat" onclick="filtrar('acessórios', this)">Acessórios</button>
+    <button class="btn-cat" onclick="filtrar('brinquedos', this)">Brinquedos</button>
+  </div>
+
+  <!-- PRODUTOS -->
+  <p class="section-titulo" id="section-titulo">Todos os produtos</p>
+  <div class="grid-produtos" id="grid">
+    <div class="loading">Carregando produtos...</div>
+  </div>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" onclick="fecharCarrinho()"></div>
+
+  <!-- SIDEBAR CARRINHO -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Seu Carrinho</h2>
+      <button class="btn-fechar" onclick="fecharCarrinho()">✕</button>
+    </div>
+    <div class="sidebar-itens" id="sidebar-itens">
+      <div class="carrinho-vazio">🛒<br>Seu carrinho está vazio</div>
+    </div>
+    <div class="sidebar-footer" id="sidebar-footer" style="display:none">
+      <div class="total">
+        <span>Total</span>
+        <span id="total-valor">R$ 0,00</span>
+      </div>
+      <button class="btn-finalizar" onclick="finalizar()">Finalizar pedido pelo WhatsApp</button>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast"></div>
+
+  <!-- FIREBASE -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, getDocs, query, where, orderBy }
+      from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // ── Cole aqui seu firebaseConfig ──────────────────
+    const firebaseConfig = {
+      apiKey: "AIzaSyDVyZ5ZkAPyWFBMS-tNQRktwu53yomKoBI",
+      authDomain: "lar-bem.firebaseapp.com",
+      projectId: "lar-bem",
+      storageBucket: "lar-bem.firebasestorage.app",
+      messagingSenderId: "284441631105  ",
+      appId: "1:284441631105:web:ee94fab9a82a832f077080"
+    };
+    // ─────────────────────────────────────────────────
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Expõe globalmente para o resto do script usar
+    window._db = db;
+    window._collection = collection;
+    window._getDocs = getDocs;
+    window._query = query;
+    window._where = where;
+
+    // Carrega produtos ao iniciar
+    carregarProdutos('todos');
+  </script>
+
+  <script>
+    // ── ESTADO ────────────────────────────────────────
+    let carrinho = [];
+    let todosProdutos = [];
+    let categoriaAtual = 'todos';
+
+    // ── CARREGAR PRODUTOS DO FIREBASE ─────────────────
+    async function carregarProdutos(categoria) {
+      const grid = document.getElementById('grid');
+      grid.innerHTML = '<div class="loading">Carregando produtos...</div>';
+
+      // Aguarda o Firebase inicializar
+      await new Promise(r => setTimeout(r, 800));
+
+      try {
+        const db = window._db;
+        const col = window._collection(db, 'produtos');
+
+        let q;
+        if (categoria === 'todos') {
+          q = col;
+        } else {
+          q = window._query(col, window._where('categoria', '==', categoria));
+        }
+
+        const snap = await window._getDocs(q);
+        todosProdutos = [];
+        snap.forEach(doc => {
+          todosProdutos.push({ id: doc.id, ...doc.data() });
+        });
+
+        renderizarProdutos(todosProdutos);
+      } catch (err) {
+        console.error(err);
+        grid.innerHTML = '<div class="vazio">⚠️<p>Erro ao carregar produtos.<br>Verifique a conexão com o Firebase.</p></div>';
+      }
+    }
+
+    // ── RENDERIZAR CARDS ──────────────────────────────
+    function renderizarProdutos(produtos) {
+      const grid = document.getElementById('grid');
+
+      if (produtos.length === 0) {
+        grid.innerHTML = '<div class="vazio">📦<p>Nenhum produto encontrado nesta categoria.</p></div>';
+        return;
+      }
+
+      grid.innerHTML = produtos.map(p => `
+        <div class="card">
+          <div class="card-img">
+            ${p.imagem
+              ? `<img src="${p.imagem}" alt="${p.nome}" />`
+              : '📦 Sem imagem'}
+          </div>
+          <div class="card-body">
+            <span class="card-categoria">${p.categoria}</span>
+            <p class="card-nome">${p.nome}</p>
+            <p class="card-preco">R$ ${Number(p.preco).toFixed(2).replace('.', ',')} <span>/ unidade</span></p>
+            <p class="card-qtd ${p.quantidade <= 0 ? 'esgotado' : ''}">
+              ${p.quantidade > 0 ? `${p.quantidade} disponíve${p.quantidade === 1 ? 'l' : 'is'}` : 'Esgotado'}
+            </p>
+            <button class="btn-add"
+              ${p.quantidade <= 0 ? 'disabled' : ''}
+              onclick="adicionarAoCarrinho('${p.id}', '${p.nome}', ${p.preco}, '${p.imagem || ''}', ${p.quantidade})">
+              ${p.quantidade > 0 ? '+ Adicionar ao carrinho' : 'Esgotado'}
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // ── FILTRAR POR CATEGORIA ─────────────────────────
+    function filtrar(categoria, btn) {
+      categoriaAtual = categoria;
+
+      // Atualiza botões
+      document.querySelectorAll('.btn-cat').forEach(b => b.classList.remove('ativo'));
+      btn.classList.add('ativo');
+
+      // Atualiza título
+      const titulos = {
+        todos: 'Todos os produtos',
+        roupas: 'Roupas',
+        'calçados': 'Calçados',
+        'acessórios': 'Acessórios',
+        brinquedos: 'Brinquedos'
+      };
+      document.getElementById('section-titulo').textContent = titulos[categoria] || categoria;
+
+      carregarProdutos(categoria);
+    }
+
+    // ── CARRINHO ──────────────────────────────────────
+    function adicionarAoCarrinho(id, nome, preco, imagem, qtdDisp) {
+      const existente = carrinho.find(i => i.id === id);
+
+      if (existente) {
+        if (existente.qtd >= qtdDisp) {
+          mostrarToast('Quantidade máxima atingida!');
+          return;
+        }
+        existente.qtd++;
+      } else {
+        carrinho.push({ id, nome, preco, imagem, qtd: 1, qtdDisp });
+      }
+
+      atualizarCarrinho();
+      mostrarToast(`✅ ${nome} adicionado!`);
+    }
+
+    function removerDoCarrinho(id) {
+      carrinho = carrinho.filter(i => i.id !== id);
+      atualizarCarrinho();
+    }
+
+    function alterarQtd(id, delta) {
+      const item = carrinho.find(i => i.id === id);
+      if (!item) return;
+
+      item.qtd += delta;
+
+      if (item.qtd <= 0) {
+        removerDoCarrinho(id);
+        return;
+      }
+
+      if (item.qtd > item.qtdDisp) {
+        item.qtd = item.qtdDisp;
+        mostrarToast('Quantidade máxima atingida!');
+      }
+
+      atualizarCarrinho();
+    }
+
+    function atualizarCarrinho() {
+      // Badge
+      const total = carrinho.reduce((s, i) => s + i.qtd, 0);
+      document.getElementById('badge').textContent = total;
+
+      // Itens na sidebar
+      const container = document.getElementById('sidebar-itens');
+      const footer = document.getElementById('sidebar-footer');
+
+      if (carrinho.length === 0) {
+        container.innerHTML = '<div class="carrinho-vazio">🛒<br>Seu carrinho está vazio</div>';
+        footer.style.display = 'none';
+        return;
+      }
+
+      footer.style.display = 'block';
+
+      container.innerHTML = carrinho.map(item => `
+        <div class="item-carrinho">
+          ${item.imagem
+            ? `<img class="item-carrinho-img" src="${item.imagem}" alt="${item.nome}">`
+            : `<div class="item-carrinho-img" style="display:flex;align-items:center;justify-content:center;font-size:1.5rem">📦</div>`}
+          <div class="item-carrinho-info">
+            <strong>${item.nome}</strong>
+            <span>R$ ${(item.preco * item.qtd).toFixed(2).replace('.', ',')}</span>
+          </div>
+          <div class="item-carrinho-controles">
+            <button class="btn-qtd" onclick="alterarQtd('${item.id}', -1)">−</button>
+            <span>${item.qtd}</span>
+            <button class="btn-qtd" onclick="alterarQtd('${item.id}', 1)">+</button>
+          </div>
+        </div>
+      `).join('');
+
+      // Total
+      const totalValor = carrinho.reduce((s, i) => s + (i.preco * i.qtd), 0);
+      document.getElementById('total-valor').textContent =
+        'R$ ' + totalValor.toFixed(2).replace('.', ',');
+    }
+
+    // ── ABRIR / FECHAR CARRINHO ───────────────────────
+    function abrirCarrinho() {
+      document.getElementById('sidebar').classList.add('aberto');
+      document.getElementById('overlay').classList.add('aberto');
+    }
+
+    function fecharCarrinho() {
+      document.getElementById('sidebar').classList.remove('aberto');
+      document.getElementById('overlay').classList.remove('aberto');
+    }
+
+    // ── FINALIZAR PELO WHATSAPP ───────────────────────
+    function finalizar() {
+      if (carrinho.length === 0) return;
+
+      // ⚠️ Troque pelo número real do WhatsApp da instituição
+      const numero = '(81) 3225-0151';
+
+      const itens = carrinho.map(i =>
+        `• ${i.nome} x${i.qtd} = R$ ${(i.preco * i.qtd).toFixed(2).replace('.', ',')}`
+      ).join('\n');
+
+      const total = carrinho.reduce((s, i) => s + (i.preco * i.qtd), 0);
+      const msg = `Olá! Gostaria de comprar os seguintes itens do Bazar Solidário Lar Bem:\n\n${itens}\n\nTotal: R$ ${total.toFixed(2).replace('.', ',')}`;
+
+      window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // ── TOAST ─────────────────────────────────────────
+    function mostrarToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    // Expõe funções globalmente
+    window.filtrar = filtrar;
+    window.adicionarAoCarrinho = adicionarAoCarrinho;
+    window.alterarQtd = alterarQtd;
+    window.abrirCarrinho = abrirCarrinho;
+    window.fecharCarrinho = fecharCarrinho;
+    window.finalizar = finalizar;
+  </script>
+
+</body>
+</html>
