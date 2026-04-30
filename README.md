@@ -1,5 +1,6 @@
-## UNIVERSIDADE CATÓLICA DE PERNAMBUCO
-> Curso - Ciências da Computação
+> Este projeto é um software livre sob a licença **GNU GPLv3**.
+
+## UNIVERSIDADE CATÓLICA DE PERNAMBUCO - CC
 
 # 🌍 Computação, Sociedade e Sustentabilidade
 
@@ -18,28 +19,24 @@
 
 ## 💡 Sobre o Projeto
 
-Este repositório documenta as atividades desenvolvidas no projeto de extensão voltado ao impacto social direto. Atuamos em duas frentes distintas, mas complementares:
+Este repositório documenta o desenvolvimento da interface e estrutura digital para a instituição **LARBEM**. O trabalho foi focado em criar uma presença online sólida para fortalecer o impacto social da entidade.
 
-### 🏠 1. LARBEM (Solução Digital)
-Foco na **Transformação Digital** da instituição através da prototipagem de um site institucional moderno.
-*   **Ação:** Planejamento e design de interface (UI/UX).
-*   **Foco:** Usabilidade, acessibilidade e fortalecimento da identidade visual.
-*   **Objetivo:** Facilitar o acesso da comunidade às informações e serviços da instituição.
+### 🎯 Objetivos Principais
 
-### 🤝 2. Grupo Partilhar (Estratégia e Recursos)
-Foco na **Sustentabilidade Financeira** e engajamento comunitário.
-*   **Ação:** Desenvolvimento de estratégias de captação e organização de eventos (Bazares, oficinas e minicursos).
-*   **Tecnologia:** Uso de ferramentas digitais para otimizar a divulgação e o fluxo de doações.
-*   **Objetivo:** Ampliar o alcance das ações beneficentes e o engajamento do público.
+*   **Design UI/UX:** Planejamento e design de interface focado na experiência do usuário.
+*   **Acessibilidade:** Garantir que a plataforma seja inclusiva e utilizável por todos.
+*   **Identidade Visual:** Fortalecimento da marca institucional no ambiente digital.
+*   **Informação:** Facilitar o acesso da comunidade aos serviços prestados pelo LarBEM.
 
 ---
 
-## 🛠️ Entregáveis do Repositório
-Neste espaço, você encontrará:
+## 🛠️ Entregáveis
+Neste repositório, estão disponíveis:
 *   ✅ **Protótipos de Alta Fidelidade** (Design do site)
 *   ✅ **Fluxogramas de Processos**
-*   ✅ **Materiais de Divulgação e Planejamento Estratégico**
+*   ✅ **Documentação de Requisitos e Usabilidade**
 
 ---
 
-[LINK APRESENTAÇÃO](https://canva.link/8cmxldpm28i7thu)
+## 🔗 Links Úteis
+[APRESENTAÇÃO](https://canva.link/8cmxldpm28i7thu)
