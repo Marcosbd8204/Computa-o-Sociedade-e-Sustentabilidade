@@ -656,8 +656,12 @@ header {
 .Voluntario-section {
   max-width: 550px;
   text-align: left;
-  color: #ffffff;
+
   margin-left: 0;
+}
+
+.Voluntario-section p{
+  color: #ffffff;       /* COR DO TEXTO ANTES DO BOTAO DE VOLUNTARIO*/
 }
 
 .Voluntario-section h2 {
