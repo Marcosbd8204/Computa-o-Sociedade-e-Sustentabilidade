@@ -19,7 +19,7 @@
 
 Este repositório documenta o desenvolvimento da interface e estrutura digital para a instituição **LARBEM**. O trabalho foi focado em criar uma presença online sólida para fortalecer o impacto social da entidade.
 
-### 🎯 Objetivos Principais
+## 🎯 Objetivos Principais
 
 *   **Design UI/UX:** Planejamento e design de interface focado na experiência do usuário.
 *   **Acessibilidade:** Garantir que a plataforma seja inclusiva e utilizável por todos.
