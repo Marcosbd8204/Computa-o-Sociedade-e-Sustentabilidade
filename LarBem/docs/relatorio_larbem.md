@@ -75,6 +75,7 @@ O projeto prevê a entrega de um guia básico de utilização do site e das estr
 
 ### Objetivo de Desenvolvimento Sustentável Impactado:
 - ODS 9: Indústria, Inovação e Infraestrutura (Fortalecimento da infraestrutura digital local)
+- ODS 17: escrever..........
 
 ### Quantidade de pessoas impactadas diretamente: 
 Aproximadamente 5 pessoas (gestores e voluntários diretos do LARBEM que operarão o sistema).
