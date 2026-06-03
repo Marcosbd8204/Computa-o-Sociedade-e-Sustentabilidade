@@ -1,8 +1,8 @@
 <div align="center">
   
-## UNICAP - UNIVERSIDADE CATÓLICA DE PERNAMBUCO
+# UNICAP - UNIVERSIDADE CATÓLICA DE PERNAMBUCO
 
-# 🌍 Computação, Sociedade e Sustentabilidade
+## 🌍 Computação, Sociedade e Sustentabilidade
 
 > **Projeto de Extensão Universitária do curso de Ciências da Computação**  
 > Unindo tecnologia e impacto social para fortalecer instituições locais através de soluções digitais e estratégias de captação.
