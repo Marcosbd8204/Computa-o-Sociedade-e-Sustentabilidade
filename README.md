@@ -1,9 +1,13 @@
+<div align="center">
+  
 ## UNICAP - UNIVERSIDADE CATÓLICA DE PERNAMBUCO
 
 # 🌍 Computação, Sociedade e Sustentabilidade
 
 > **Projeto de Extensão Universitária do curso de Ciências da Computação**  
 > Unindo tecnologia e impacto social para fortalecer instituições locais através de soluções digitais e estratégias de captação.
+
+</div>
 
 ---
 <br>
@@ -27,10 +31,12 @@ Este repositório documenta o desenvolvimento da interface e estrutura digital p
 *   **Informação:** Facilitar o acesso da comunidade aos serviços prestados pelo LarBEM.
 
 ---
+<div align="center">
 
 # 💻 Site Institucional - Lar Bem Elizabeth
 
-> Status: ❇️ FINALIZADO
+STATUS: ❇️ FINALIZADO
+</div>
 
 ## SOBRE O PROJETO
 Este site foi desenvolvido como parte de um projeto de extensão universitária para apoiar o **Lar Bem Elizabeth**, localizado em Recife/PE. O objetivo é criar uma ponte digital entre a instituição e a comunidade, facilitando a doação de materiais e a divulgação do bazar solidário.
