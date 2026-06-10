@@ -11,6 +11,11 @@
 
 ---
 <br>
+  <img src="https://github.com/Foco-Dev-Projeto-de-Extensao/repositorio-do-larbem/blob/main/LarBem/docs/home.png" >
+<div align="center">
+</div>
+
+
 <div align="center">
 
 ### 🌐 Deploy
